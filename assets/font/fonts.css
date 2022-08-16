@@ -1,0 +1,54 @@
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanThin.woff') , url('../IranYekan/tff/IranYekanThin.ttf') , 
+    url('../IranYekan/eot/IranYekanThin.eot');
+    font-weight: 100;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanLight.woff') , url('../IranYekan/tff/IranYekanLight.woff.ttf') ,
+    url('../IranYekan/eot/IranYekanLight.woff.eot');
+    font-weight: 300;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanRegular.woff') , url('../IranYekan/tff/IranYekanRegular.woff.ttf') ,
+    url('../IranYekan/eot/IranYekanRegular.woff.eot');
+    font-weight: 400;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanMedium.woff') , url('../IranYekan/tff/IranYekanMedium.woff.ttf') ,
+    url('../IranYekan/eot/IranYekanMedium.woff.eot');
+    font-weight: 500;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanBold.woff') , url('../IranYekan/tff/IranYekanBold.woff.ttf') ,
+    url('../IranYekan/eot/IranYekanBold.woff.eot');
+    font-weight: 600;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanExtraBold.woff') , url('../IranYekan/tff/IranYekanExtraBold.woff.ttf') , 
+    url('../IranYekan/eot/IranYekanExtraBold.woff.eot');
+    font-weight: 700;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanExtraBold.woff') , url('../IranYekan/tff/IranYekanExtraBold.woff.ttf') ,
+    url('../IranYekan/eot/IranYekanExtraBold.woff.eot');
+    font-weight: 800;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanBlack.woff') , url('../IranYekan/tff/IranYekanBlack.woff.ttf') ,
+    url('../IranYekan/eot/IranYekanBlack.woff.eot');
+    font-weight: 900;
+}
+@font-face {
+    font-family: iranyekan;
+    src: url('../IranYekan/woff/IranYekanExtraBlack.woff') , url('../IranYekan/tff/IranYekanExtraBlack.woff.ttf') , 
+    url('../IranYekan/eot/IranYekanExtraBlack.woff.eot');
+    font-weight: 950;
+}

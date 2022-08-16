@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="font-iranyekan" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دیجی تایز</title>
+    <link rel="stylesheet" href="./build/tailwind.css">
+</head>
+
+<body class="bg-stone-100 dark:bg-[#222]">
+    <!-- END Desktop Header -->
+    <div x-data="{filter: 'closed' , themeOpened : false}" class="max-w-[2000px] mx-auto">
+        <button @click="themeOpened = !themeOpened "
+            class="fixed dark:bg-slate-200 shadow-lg top-2/4 opacity-70 hover:opacity-100 z-50 transition-all duration-300 left-0 rounded-tr-full rounded-br-full w-12 md:w-14 lg:w-16 h-10 bg-slate-800 -ml-[1px] flex items-center justify-center">
+            <img id="svg" class="lg:w-1/2 w-4/6" src="./img/sun.svg" alt="">
+        </button>
+        <div x-show="themeOpened == true "
+            class="fixed z-50 rounded-md bg-white flex flex-col left-0 top-1/2 mt-2 w-44">
+            <ul x-data="{selctedTheme: document.cookie}"
+                class="absolute z-[51] top-full right-0 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-slate-700 font-semibold dark:bg-slate-800 dark:ring-0 dark:highlight-white/5 dark:text-slate-300 mt-4">
+                <li :class="selctedTheme == 'theme=light' ? 'text-sky-500 ' : '' "
+                    @click="themeOpened = false; selctedTheme = 'theme=light' " onclick="changeTheme.lightTheme()"
+                    class="py-1 px-2 flex items-center cursor-pointer justify-end">
+                    روشن<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="w-6 h-6 mr-2">
+                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="stroke-slate-400 dark:stroke-slate-500"
+                            :class="selctedTheme == 'theme=light' ? '!stroke-sky-500' : '' ">
+                        </path>
+                        <path
+                            d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
+                            class="stroke-slate-400 dark:stroke-slate-500"
+                            :class="selctedTheme == 'theme=light' ? '!stroke-sky-500' : '' "></path>
+                    </svg></li>
+                <li :class="selctedTheme == 'theme=dark' ? 'text-sky-500 ' : '' "
+                    @click="themeOpened = false; selctedTheme = 'theme=dark' " onclick="changeTheme.darkTheme()"
+                    class="py-1 px-2 flex items-center cursor-pointer justify-end">
+                    تاریک<svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
+                            class="fill-transparent"></path>
+                        <path
+                            d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
+                            class="fill-slate-400 dark:fill-slate-500"
+                            :class="selctedTheme == 'theme=dark' ? '!fill-sky-500' : '' "></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
+                            class="fill-slate-400 dark:fill-slate-500"
+                            :class="selctedTheme == 'theme=dark' ? '!fill-sky-500' : '' "></path>
+                    </svg></li>
+                <li :class="selctedTheme == 'theme=system' ? 'text-sky-500 ' : '' "
+                    @click="themeOpened = false; selctedTheme = 'theme=system' " onclick="changeTheme.systemTheme()"
+                    class="py-1 px-2 flex items-center cursor-pointer justify-end" role="option">
+                    اتوماتیک<svg viewBox="0 0 24 24" fill="none" class="w-6 h-6 mr-2">
+                        <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"
+                            stroke-width="2" stroke-linejoin="round"
+                            class="stroke-slate-400 fill-slate-400/20 dark:stroke-slate-500 dark:slate-500/20"
+                            :class="selctedTheme == 'theme=system' ? '!stroke-sky-500 !fill-sky-400/20' : ''"></path>
+                        <path d="M14 15c0 3 2 5 2 5H8s2-2 2-5" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="stroke-slate-400 dark:stroke-slate-500"
+                            :class="selctedTheme == 'theme=system' ? '!stroke-sky-500' : '' ">
+                        </path>
+                    </svg></li>
+            </ul>
+        </div>
+        <button @click="themeOpened = false" :class="themeOpened == true ? '!block' : '' "
+            class="fixed inset-0 w-full h-full z-40 hidden">
+
+        </button>
+        <div class="flex items-center justify-between mt-11 px-6 mb-6">
+            <a href="">
+                <img src="./img/Logo.svg" alt="">
+            </a>
+            <h2 class="text-lg text-slate-800 dark:text-white font-bold">
+                دسته بندی
+            </h2>
+            <a class="bg-white dark:bg-[#333] shadow-lg h-9 w-9 flex items-center justify-center rounded-md" href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path class="stroke-[#222F5D] dark:stroke-white"
+                        d="M9.58317 17.4998C13.9554 17.4998 17.4998 13.9554 17.4998 9.58317C17.4998 5.21092 13.9554 1.6665 9.58317 1.6665C5.21092 1.6665 1.6665 5.21092 1.6665 9.58317C1.6665 13.9554 5.21092 17.4998 9.58317 17.4998Z"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path class="stroke-[#222F5D] dark:stroke-white" d="M18.3332 18.3332L16.6665 16.6665"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="flex flex-col pr-2 gap-y-6 py-8">
+            <div class="flex gap-x-2">
+                <div class="flex flex-col flex-1 rounded-xl bg-slate-200 dark:bg-[#333] overflow-hidden min-w-[150px]">
+                    <div class="flex justify-center items-center mt-6 mb-4">
+                        <h2 class="font-bold text-slate-700 dark:text-slate-200">
+                            تلفن همراه
+                        </h2>
+                    </div>
+                    <div class="flex justify-end items-center flex-1">
+                        <img class="h-full w-full" src="./img/image 16.png" alt="">
+                    </div>
+                </div>
+                <div class="flex flex-col flex-[2] w-[0vw] pl-2">
+                    <a class="text-orange-500 text-left pl-4 mb-4" href="./index.html">مشاهده همه</a>
+                    <div class="overflow-x-auto flex-1">
+                        <div class="flex gap-x-2 p-2 h-full">
+                            <div
+                                class="bg-white dark:bg-[#333] rounded-lg shadow-lg flex flex-col justify-center items-center flex-1 py-8 px-2 min-w-[150px]">
+                                <img class="w-1/2" src="./img/image 21.png" alt="">
+                                <h3 class="mt-4 dark:text-white">
+                                    اپل
+                                </h3>
+                            </div>
+                            <div
+                                class="bg-white dark:bg-[#333] rounded-lg shadow-lg flex flex-col justify-center items-center flex-1 py-8 px-2 min-w-[150px]">
+                                <img class="w-1/2" src="./img/image 23.png" alt="">
+                                <h3 class="mt-4 dark:text-white">
+                                    شیائومی
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-x-2">
+                <div class="flex flex-col flex-1 rounded-xl bg-slate-200 dark:bg-[#333] overflow-hidden min-w-[150px]">
+                    <div class="flex justify-center items-center mt-6 mb-4">
+                        <h2 class="font-bold text-slate-700 dark:text-slate-200">
+                            لپ تاپ
+                        </h2>
+                    </div>
+                    <div class="flex justify-end items-center flex-1">
+                        <img class="h-full w-full" src="./img/icon/image 20.png" alt="">
+                    </div>
+                </div>
+                <div class="flex flex-col flex-[2] w-[0vw] pl-2">
+                    <a class="text-orange-500 text-left pl-4 mb-4" href="./laptop.html">مشاهده همه</a>
+                    <div class="overflow-x-auto flex-1">
+                        <div class="flex gap-x-2 p-2 h-full">
+                            <div
+                                class="bg-white dark:bg-[#333] rounded-lg shadow-lg flex flex-col justify-center items-center flex-1 py-8 px-2 min-w-[150px]">
+                                <img class="w-1/2" src="./img/image 21.png" alt="">
+                                <h3 class="mt-4 dark:text-white">
+                                    اپل
+                                </h3>
+                            </div>
+                            <div
+                                class="bg-white dark:bg-[#333] rounded-lg shadow-lg flex flex-col justify-center items-center flex-1 py-8 px-2 min-w-[150px]">
+                                <img class="w-1/2" src="./img/image 23.png" alt="">
+                                <h3 class="mt-4 dark:text-white">
+                                    شیائومی
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-x-2">
+                <div class="flex flex-col flex-1 rounded-xl bg-slate-200 dark:bg-[#333] overflow-hidden min-w-[150px]">
+                    <div class="flex justify-center items-center mt-6 mb-4">
+                        <h2 class="font-bold text-slate-700 dark:text-slate-200">
+                            ساعت هوشمند
+                        </h2>
+                    </div>
+                    <div class="flex justify-end items-center flex-1">
+                        <img class="h-full w-full" src="./img/icon/image 19.png" alt="">
+                    </div>
+                </div>
+                <div class="flex flex-col flex-[2] w-[0vw] pl-2">
+                    <a class="text-orange-500 text-left pl-4 mb-4" href="./watch.html">مشاهده همه</a>
+                    <div class="overflow-x-auto flex-1">
+                        <div class="flex gap-x-2 p-2 h-full">
+                            <div
+                                class="bg-white dark:bg-[#333] rounded-lg shadow-lg flex flex-col justify-center items-center flex-1 py-8 px-2 min-w-[150px]">
+                                <img class="w-1/2" src="./img/image 21.png" alt="">
+                                <h3 class="mt-4 dark:text-white">
+                                    اپل
+                                </h3>
+                            </div>
+                            <div
+                                class="bg-white dark:bg-[#333] rounded-lg shadow-lg flex flex-col justify-center items-center flex-1 py-8 px-2 min-w-[150px]">
+                                <img class="w-1/2" src="./img/image 23.png" alt="">
+                                <h3 class="mt-4 dark:text-white">
+                                    شیائومی
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div x-data="{ nav: 'phone' , width: 'w-fit' , opacity: 'opacity-100'}"
+            class="md:hidden sm:px-10 px-6  bg-white dark:bg-[#444] rounded-tr-lg rounded-tl-lg sticky bottom-0 left-0 right-0 h-16 w-full shadow-[0_-4px_8px_0_rgba(0,0,0,0.1)] z-50">
+            <ul class="flex items-center justify-between">
+                <li>
+                    <a href="./index.html" @click="nav = 'home' " class="flex py-3 items-center gap-x-2">
+                        <svg :class="nav == 'home' ? opacity : '' " class="opacity-50 fill-[#222F5D] dark:fill-white"
+                            width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m26.72 9.0936-7.68-5.3734c-2.0933-1.4666-5.3067-1.3866-7.32.1734L5.04 9.1069c-1.3334 1.04-2.3867 3.1733-2.3867 4.8533v9.2c0 3.4 2.76 6.1734 6.16 6.1734h14.3734c3.4 0 6.16-2.76 6.16-6.16v-9.04c0-1.8-1.16-4.0134-2.6267-5.04ZM17 24.0002c0 .5467-.4533 1-1 1s-1-.4533-1-1v-4c0-.5466.4533-1 1-1s1 .4534 1 1v4Z">
+                            </path>
+                        </svg>
+                        <span :class="nav == 'home' ? 'w-[30px]' : '' "
+                            class="font-bold text-slate-800 dark:text-white overflow-hidden transition-all duration-500 w-0">
+                            خانه
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./sort.html" @click="nav = 'phone' " class="flex py-3 items-center gap-x-2">
+                        <svg :class="nav == 'phone' ? opacity : '' " class="opacity-50 fill-[#222F5D] dark:fill-white"
+                            width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <path
+                                    d="M10.2568 2.8335H7.5652c-3.1025 0-4.7317 1.6292-4.7317 4.7175v2.6917c0 3.0883 1.6292 4.7175 4.7175 4.7175h2.6917c3.0883 0 4.7175-1.6292 4.7175-4.7175V7.551c.0141-3.0883-1.615-4.7175-4.7034-4.7175ZM26.4492 2.8335h-2.6917c-3.0883 0-4.7175 1.6292-4.7175 4.7175v2.6917c0 3.0883 1.6292 4.7175 4.7175 4.7175h2.6917c3.0883 0 4.7175-1.6292 4.7175-4.7175V7.551c0-3.0883-1.6292-4.7175-4.7175-4.7175ZM26.4492 19.0259h-2.6917c-3.0883 0-4.7175 1.6291-4.7175 4.7175v2.6916c0 3.0884 1.6292 4.7175 4.7175 4.7175h2.6917c3.0883 0 4.7175-1.6291 4.7175-4.7175v-2.6916c0-3.0884-1.6292-4.7175-4.7175-4.7175ZM10.2568 19.0259H7.5652c-3.1025 0-4.7317 1.6291-4.7317 4.7175v2.6916c0 3.1025 1.6292 4.7317 4.7175 4.7317h2.6917c3.0883 0 4.7175-1.6292 4.7175-4.7175v-2.6917c.0141-3.1025-1.615-4.7316-4.7034-4.7316Z">
+                                </path>
+                            </g>
+                        </svg>
+                        <span :class="nav == 'phone' ? 'w-[76px]' : '' "
+                            class="font-bold text-slate-800 dark:text-white w-0 overflow-hidden transition-all duration-500">
+                            دسته بندی
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./cart.html" @click="nav = 'laptop' " class="flex py-3 items-center gap-x-2">
+                        <svg class="opacity-50 fill-[#222F5D] dark:fill-white" :class="nav == 'laptop' ? opacity : '' "
+                            width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M28.2766 12.6934c-.9491-1.0483-2.38-1.6575-4.3633-1.87V9.7467c0-1.9408-.8217-3.8108-2.2667-5.1141-1.4591-1.3317-3.3575-1.955-5.3266-1.7709-3.3859.3259-6.2334 3.5984-6.2334 7.14v.8217c-1.9833.2125-3.4141.8217-4.3633 1.87-1.3742 1.53-1.3317 3.57-1.1758 4.9867l.9916 7.8908c.2975 2.7625 1.4167 5.5958 7.5084 5.5958h7.905c6.0916 0 7.2108-2.8333 7.5083-5.5816l.9917-7.9192c.1558-1.4025.1841-3.4425-1.1759-4.9725ZM16.5183 4.8309c1.4167-.1275 2.7625.3117 3.8108 1.2608 1.0342.935 1.615 2.2667 1.615 3.655v.9917h-9.8883v-.7367c0-2.5216 2.0825-4.9441 4.4625-5.1708Zm-4.59 13.7983h-.0142c-.7791 0-1.4166-.6375-1.4166-1.4166 0-.7792.6375-1.4167 1.4166-1.4167.7934 0 1.4309.6375 1.4309 1.4167 0 .7791-.6375 1.4166-1.4167 1.4166Zm9.9167 0h-.0142c-.7792 0-1.4167-.6375-1.4167-1.4166 0-.7792.6375-1.4167 1.4167-1.4167.7933 0 1.4308.6375 1.4308 1.4167 0 .7791-.6375 1.4166-1.4166 1.4166Z">
+                            </path>
+                        </svg>
+                        <span :class="nav == 'laptop' ? 'w-[66px]' : '' "
+                            class="font-bold text-slate-800 dark:text-white w-0 overflow-hidden transition-all duration-500">
+                            سبد خرید
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" @click="nav = 'watch' " class="flex py-3 items-center gap-x-2">
+                        <svg :class="nav == 'watch' ? opacity : '' " class="opacity-50 fill-[#222F5D] dark:fill-white"
+                            width="29" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M20.8335.3335c-2.5111 0-4.7556 1.2222-6.1556 3.0889-1.4-1.8667-3.6444-3.0889-6.1555-3.0889C4.2779.3335.8335 3.8002.8335 8.0668c0 1.6445.2667 3.1778.7111 4.5778 2.1778 6.9111 8.9333 11.0667 12.2667 12.2.4666.1556 1.2444.1556 1.7111 0 3.3333-1.1333 10.0889-5.2667 12.2667-12.2.4666-1.4222.7111-2.9333.7111-4.5778.0222-4.2666-3.4223-7.7333-7.6667-7.7333Z">
+                            </path>
+                        </svg>
+                        <span :class="nav == 'watch' ? 'w-[70px]' : '' "
+                            class="font-bold text-slate-800 dark:text-white w-0 overflow-hidden transition-all duration-500">
+                            مورد علاقه
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="./alpine.js" defer></script>
+    <script src="./script.js" defer></script>
+</body>
+
+</html>
